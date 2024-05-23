@@ -99,9 +99,53 @@ class Libreria:
         except FileNotFoundError:
             return "Archivo no encontrado"
 
-
+# Crear instancia de la librería
 mi_libreria = Libreria()
+
+# Añadir algunos libros
 mi_libreria.anadir_libro("Cien años de soledad", "Gabriel García Márquez", "Novela", 1967)
+mi_libreria.anadir_libro("El amor en los tiempos del cólera", "Gabriel García Márquez", "Novela", 1985)
+mi_libreria.anadir_libro("Don Quijote de la Mancha", "Miguel de Cervantes", "Novela", 1605)
+mi_libreria.anadir_libro("1984", "George Orwell", "Distopía", 1949)
+mi_libreria.anadir_libro("Fahrenheit 451", "Ray Bradbury", "Distopía", 1953)
+
+# Guardar libros en un archivo JSON
 mi_libreria.guardar_libros('libreria.json')
+
+# Cargar libros desde el archivo JSON
 print(mi_libreria.cargar_libros('libreria.json'))
+
+# Buscar libros por título
+print("Buscar por título 'Cien años de soledad':")
+print(mi_libreria.buscar_libro("Cien años de soledad"))
+
+print("Buscar por título 'Don Quijote de la Mancha':")
+print(mi_libreria.buscar_libro("Don Quijote de la Mancha"))
+
+print("Buscar por título 'Libro no existente':")
+print(mi_libreria.buscar_libro("Libro no existente"))
+
+# Buscar libros por autor
+print("Buscar por autor 'Gabriel García Márquez':")
 print(mi_libreria.buscar_por_autor("Gabriel García Márquez"))
+
+print("Buscar por autor 'George Orwell':")
+print(mi_libreria.buscar_por_autor("George Orwell"))
+
+print("Buscar por autor 'Autor no existente':")
+print(mi_libreria.buscar_por_autor("Autor no existente"))
+
+# Eliminar libros por título
+print("Eliminar libro '1984':")
+print(mi_libreria.eliminar_libro("1984"))
+
+print("Eliminar libro 'Libro no existente':")
+print(mi_libreria.eliminar_libro("Libro no existente"))
+
+# Verificar que el libro se ha eliminado
+print("Buscar por título '1984' después de eliminación:")
+print(mi_libreria.buscar_libro("1984"))
+
+# Guardar la lista de libros actualizada
+mi_libreria.guardar_libros('libreria_actualizada.json')
+print(mi_libreria.libros)
